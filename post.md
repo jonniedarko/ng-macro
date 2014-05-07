@@ -30,37 +30,27 @@ Start by
 &lt;html&gt;
 
 &lt;head&gt;
-  &lt;meta http-equiv="Content-Type" content="text&#47html; charset=UTF-8"&gt;
-  &lt;title&gt;ng-Macro: Tests&lt;&#47title&gt;
+  &lt;meta http-equiv="Content-Type" content="text&#47;html; charset=UTF-8"&gt;
+  &lt;title&gt;ng-Macro: Tests&lt;&#47;title&gt;
   &lt;!-- jasmine --&gt;
-  &lt;script src="jasmine&#47jasmine.js"&gt;&lt;&#47script&gt;
+  &lt;script src="jasmine&#47;jasmine.js"&gt;&lt;&#47;script&gt;
   &lt;!-- jasmine's html reporting code and css --&gt;
-  &lt;script src="jasmine&#47jasmine-html.js"&gt;&lt;&#47script&gt;
-  &lt;link href="jasmine&#47jasmine.css" rel="stylesheet" &#47&gt;
+  &lt;script src="jasmine&#47;jasmine-html.js"&gt;&lt;&#47;script&gt;
+  &lt;script src="jasmine&#47;boot.js"&gt;&lt;&#47;script&gt;
+  &lt;link href="jasmine&#47;jasmine.css" rel="stylesheet" &#47;&gt;
   &lt;!-- angular itself --&gt;
-  &lt;script src="..&#47vendor&#47angular&#47angular.min.js"&gt;&lt;&#47script&gt;
+  &lt;script src="..&#47;vendor&#47;angular&#47;angular.min.js"&gt;&lt;&#47;script&gt;
   &lt;!-- angular's testing helpers --&gt;
-  &lt;script src="..&#47vendor&#47angular&#47angular-mocks.js"&gt;&lt;&#47script&gt;
+  &lt;script src="..&#47;vendor&#47;angular&#47;angular-mocks.js"&gt;&lt;&#47;script&gt;
   &lt;!-- your angular app code --&gt;
-  &lt;script src="..&#47app.js"&gt;&lt;&#47script&gt;
+  &lt;script src="..&#47;app.js"&gt;&lt;&#47;script&gt;
   &lt;!-- your Jasmine specs (tests) --&gt;
-  &lt;script src="spec&#47ngMacroSpec.js"&gt;&lt;&#47script&gt;
-&lt;&#47head&gt;
+  &lt;script src="spec&#47;ngMacroSpec.js"&gt;&lt;&#47;script&gt;
+&lt;&#47;head&gt;
 &lt;body&gt;
-  &lt;!-- bootstrap jasmine! --&gt;
-  &lt;script&gt;
-  var runner = jasmine.getEnv();
 
-  &#47&#47 Tell it to add an Html Reporter
-  &#47&#47 this will add detailed HTML-formatted results
-  &#47&#47 for each spec ran.
-  runner.addReporter(new jasmine.HtmlReporter());
-
-  &#47&#47 Execute the tests!
-  runner.execute();
-  &lt;&#47script&gt;
-&lt;&#47body&gt;
-&lt;&#47html&gt;
+&lt;&#47;body&gt;
+&lt;&#47;html&gt;
  </pre>
  4. Add the files mentioned above from lib/jasmine-2.0.0 to tests/jasmine
  5. Create a new folder "spec" and a new file "ngMacroSpec.js" inside the folder and add the following:
@@ -72,6 +62,13 @@ Start by
     });
  </pre>
 
+now if you got to ng-model/test on your browser you should see the following:
+
+    [SCREENSHOT GOES HERE]
+
+Congrats you now have a working test environment!!
+
+[code so far]()
 
 
 
