@@ -1,1 +1,1 @@
-tutorial for jonnie.io
+Basic Macronutrients Caculator built using AngularJs and Twitter Bootstrap
