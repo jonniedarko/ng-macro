@@ -70,6 +70,24 @@ Congrats you now have a working test environment!!
 
 [code so far]()
 
+Now any time we want to create a set of test cases or unit tests we just create a new `it()`. The first argument is the name of the unit test the 2nd is a function which wraps our tests.
+
+Inside this we use [jasmine's](http://jasmine.github.io/2.0/introduction.html) api to test or code, at the moment we are simple testing that `true = true` ...ya don't say say you...
+
+there are loads more useful methods in the Jasmine api (check out the above link to see them). I will cover any functions as I am going along in this post and future posts. For this Post we only need one more method
+
+`beforeEach()`
+
+This simple performs what ever setup we need before each `it()` is run. in our case we will be using it to set up our module and scope for testing but it coule be used to do many things like initiat data, inject mocked services or any dependencies our tests require.
+
+
+
+So now we need to initiate our module and controller. In order to do this we need will use 2 methods from the angular-mocks library
+
+ - [module()](https://docs.angularjs.org/api/ngMock/function/angular.mock.module) is used to register our module and collect configuration information which will be used by `inject()`
+
+ - [inject()](https://docs.angularjs.org/api/ngMock/function/angular.mock.inject) is used to create a new instance of `$injector` which is used for resolving references
+
 
 
 
