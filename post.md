@@ -80,9 +80,7 @@ there are loads more useful methods in the Jasmine api (check out the above link
 
 This simple performs what ever setup we need before each `it()` is run. in our case we will be using it to set up our module and scope for testing but it coule be used to do many things like initiat data, inject mocked services or any dependencies our tests require.
 
-
-
-So now we need to initiate our module and controller. In order to do this we need will use 2 methods from the angular-mocks library
+So now we need to initiate our module and controller. In order to do this we need will use the `beforeEach()` method as well as two methods from the angular-mocks library
 
  - [module()](https://docs.angularjs.org/api/ngMock/function/angular.mock.module) is used to register our module and collect configuration information which will be used by `inject()`
 
