@@ -1,0 +1,93 @@
+<div class="container">
+  <div ng-app="ngMacro">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jonniedarko/ng-macro/master/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/jonniedarko/ng-macro/master/style.css">
+      <div ng-controller="macroCtrl" class="container">
+          <div class="row">
+              <div class="col-sm-12"><h1>Ng-Macro</h1></div>
+          </div>
+           <div class="row">
+                 <div class="col-sm-8 form-group"><input type="text" class="form-control" id="user_name" ng-model="user.name" placeholder="What's your name?"></div>
+                 <div class="col-sm-4 form-group"><input type="text" class="form-control" id="user_age" ng-model="user.age" placeholder="What's your age?"></div>
+              </div>
+              <div class="row">
+                 <div class="col-sm-4 form-group">
+                    <div class="input-group">
+                       <input type="text" class="form-control" id="user_height" ng-model="user.height" placeholder="What's your height?">
+                       <span class="input-group-addon">cm</span>
+                    </div>
+                 </div>
+                 <div class="col-sm-4 form-group">
+                    <div class="input-group">
+                       <input type="text" class="form-control"  id="user_weight" ng-model="user.weight" placeholder="What's your weight?">
+                       <span class="input-group-addon">kg</span>
+                    </div>
+                 </div>
+                 <div class="col-sm-4 form-group">
+                    <div class="">
+                       <select name="" id="user_sex" ng-model="user.sex" class="form-control form-control margin-zero">
+                          <option value="">what is your sex?</option>
+                          <option value="male">Male</option>
+                          <option value="female">female</option>
+                       </select>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="col-sm-12">
+                    <p class="kcal-flash">
+                    <b>&nbsp;{{getName(user.name)}}&nbsp;Basic Metabolic Rate: &nbsp; </b>&nbsp; {{ getMetaRate()}}
+                    </p>
+                 </div>
+              </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                      <select name="" id="" class="form-control" ng-model="user.activityLevel" ng-change="{{updateNutrition()}}">
+                          <option value="">Select you Activity Level</option>
+                          <option ng-repeat="activityLevel in activityLevels" value="{{activityLevel.value}}">{{activityLevel.title}} ({{activityLevel.description}})</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="row" style="padding:10px;">
+              </div>
+              <div class="row">
+                  <div class="col-sm-12">
+                      <table class="table table-bordered">
+                          <thead>
+                              <th></th>
+                                <td ng-repeat="goal in goals">{{goal.title}}</td>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Calories:</td>
+                                  <td ng-repeat="goal in goals">{{goal.calories | number:0}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Protien:</td>
+                                  <td ng-repeat="goal in goals">{{goal.protein | number:0}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Fats:</td>
+                                  <td ng-repeat="goal in goals">{{goal.fats | number:0}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Carbs:</td>
+                                  <td ng-repeat="goal in goals">{{goal.carbs | number:0}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+      </div>
+      <div class="footer float-right" >
+    <p>♥ <i>built by <a href="http://www.jonnie.io">Jonnie.io</a></i></p>
+</div>
+    </div>
+    <script type="text/javascript">
+    if(typeof jQuery == 'undefined'){
+            document.write('<script type="text/javascript" src="https://cdn.rawgit.com/jonniedarko/ng-macro/master/vendor/jquery/jquery.min.js"></'+'script>');
+      }
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/jonniedarko/ng-macro/master/vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/jonniedarko/ng-macro/master/app.js"></script>
+</div>
