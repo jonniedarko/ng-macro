@@ -1,4 +1,4 @@
-####Ng-Macro: Introduction to Unit Testing Controllers in AngularJS
+####Getting started with Unit Testing un AngularJS: Basic controller Unit testing
 
 
 So in the last post We built our first (basic) AngularJS App but we don't really know if its up to scratch, are there any issues with our code? Is everything working as we expected, or as importantly, is it failing as expcted when it is not used correctly and is it doing so in an informative manner.
@@ -8,10 +8,10 @@ I won't go into detail on this as its a broad subject and is a topic in its own.
 
 _Test Driven Development_ or _TDD_ for short can be a slow setup, espically with exsisting projects, but once you get into the rythme and habit it can increase you productivity and development speed massively. Coming from a developer who has ADHD I can honestly say it helps keep you focused on the task.
 
-With JavaScript in particular it brings many advantages. As a dynamically typed language we do not get the feedback from a compiller. It is also an untyped language so can be easy to make mistakes in var assignments. Unit testing helps us catch these. By at least Writing basic unit tests we can ensure regressions don't occur.
+With JavaScript in particular it brings many advantages. As a dynamically typed language we do not get the feedback from a compiller. It is also an [untyped language](http://stackoverflow.com/questions/964910/is-javascript-an-untyped-language) so can be easy to make mistakes in var assignments. Unit testing helps us catch these. By at least Writing basic unit tests we can ensure regressions don't occur.
 
-##The Basic's
->Angular is written with testability in mind, but it still requires that you do the right thing. We tried to make the right thing easy, but if you ignore these guidelines you may end up with an untestable application.
+##The Basic'
+s>Angular is written with testability in mind, but it still requires that you do the right thing. We tried to make the right thing easy, but if you ignore these guidelines you may end up with an untestable application.
 
 #Testing Controllers
 Since Controllers usually contain the business logic, it is essential that they behave as expected and provide predictable results. A controller is an instance of an object defined by executing the controller function as a class constructor or simpley put it's calling the function, but in the context of creating an object.
@@ -86,11 +86,90 @@ So now we need to initiate our module and controller. In order to do this we nee
 
  - [inject()](https://docs.angularjs.org/api/ngMock/function/angular.mock.inject) is used to create a new instance of `$injector` which is used for resolving references
 
+ so lets setup our before each. For this lets create a new test Suit using the `describe()` function. Now before we setup our `beforeEach()` function. we need to declare our suits scope and controller variables.
+```js
+describe("ngMacro", function(){
+    var $scope, ctrl;
 
+    beforeEach(function(){
+        //initialises our Module
+        module('ngMacro');
+
+        inject(function ($rootscope, $controller){
+
+            //initialise our '$scope' object by creating a new scope
+            $scope = $rootScope.$new();
+
+            //initialise our Controller and inject in out newly
+            //created scope to the controllers Scope
+            ctrl = $controller('macroCtrl', {
+                $scope: $scope
+            });
+        });
+    });
+
+});
+```
+now in order to test this lets create a new test
+
+after our `beforeEach()` create a new `it()` and lets test to see if our goals object exists on the injected scope.
+
+```js
+it("See if our Goals object exists", function(){
+        //here we are checking to see if out goals
+        expect($scope.goals.current.title).toBe("Mainteance");
+    });
+```
+
+navigate to out test url in mycase this was "localhost/ng-macro/test"
+
+Bam! now we are actually test our controller, very basic at moment, so lets throw in a few tests to see we can set our models and use our controllers functions...
+
+```js
+
+    it("Testing getMetaRate()", function(){
+
+        $scope.user.weight = 95;
+        $scope.user.height = 193;
+        $scope.user.age = 27;
+        $scope.user.sex = "male";
+
+        expect($scope.getMetaRate()).toBe('2327.01');
+        expect(typeof $scope.user.bmr).toBe('number');
+        expect(($scope.user.bmr).toFixed(2)).toBe('2327.01');
+
+        $scope.user.sex = "female";
+        expect($scope.getMetaRate()).toBe('1807.06');
+        expect(typeof $scope.user.bmr).toBe('number');
+
+        expect(($scope.user.bmr).toFixed(2)).toBe('1807.06');
+
+    });
+
+    it("Testing updateNutrition()", function(){
+
+        $scope.user.weight = 95;
+        $scope.user.height = 193;
+        $scope.user.age = 27;
+        $scope.user.sex = "male";
+        $scope.getMetaRate();
+        $scope.user.activityLevel = 1.2;
+        $scope.updateNutrition();
+        expect($scope.goals.current.calories.toFixed(0)).toBe((2792).toFixed(0));
+        expect($scope.goals.current.protein.toFixed(0)).toBe((209).toFixed(0));
+        expect($scope.goals.current.fats.toFixed(0)).toBe((124).toFixed(0));
+        expect($scope.goals.current.carbs.toFixed(0)).toBe((209).toFixed(0));
+
+    });
+```
+
+Nothing really difficult going on here, once you have grasped what we have done pior to this then it just basic javascript here. What we are doin is setting the same variable that would be set by the UI using `ngModel` and then checking our functions produce the correct results.
+
+Not so difficult....But this is only the tip of the Iceberg. In future tutorials on testing we will explore some of the more Advanced options available such as mocking Services, End to End testing our app using [Node.js](node.js) and automating our tests using [Grunt.js](http://gruntjs.com/). The next tutorial we will be looking at creating a directive version of our ng-macro but we will try to approach it using Test Driven Development.
 
 
 
 #sources
- - http://stackoverflow.com/questions/964910/is-javascript-an-untyped-language
+ -
  - https://docs.angularjs.org/guide/unit-testing
  - http://andyshora.com/unit-testing-best-practices-angularjs.html
