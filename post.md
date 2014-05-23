@@ -47,7 +47,6 @@ Start by
   &lt;script src="spec&#47;ngMacroSpec.js"&gt;&lt;&#47;script&gt;
 &lt;&#47;head&gt;
 &lt;body&gt;
-
 &lt;&#47;body&gt;
 &lt;&#47;html&gt;
  </pre>
