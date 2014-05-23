@@ -10,8 +10,8 @@ _Test Driven Development_ or _TDD_ for short can be a slow setup, espically with
 
 With JavaScript in particular it brings many advantages. As a dynamically typed language we do not get the feedback from a compiller. It is also an [untyped language](http://stackoverflow.com/questions/964910/is-javascript-an-untyped-language) so can be easy to make mistakes in var assignments. Unit testing helps us catch these. By at least Writing basic unit tests we can ensure regressions don't occur.
 
-##The Basic'
-s>Angular is written with testability in mind, but it still requires that you do the right thing. We tried to make the right thing easy, but if you ignore these guidelines you may end up with an untestable application.
+##The Basic's
+Angular is written with testability in mind, but it still requires that you do the right thing. We tried to make the right thing easy, but if you ignore these guidelines you may end up with an untestable application.
 
 #Testing Controllers
 Since Controllers usually contain the business logic, it is essential that they behave as expected and provide predictable results. A controller is an instance of an object defined by executing the controller function as a class constructor or simpley put it's calling the function, but in the context of creating an object.
@@ -28,7 +28,6 @@ Start by
  <pre class="html">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
-
 &lt;head&gt;
   &lt;meta http-equiv="Content-Type" content="text&#47;html; charset=UTF-8"&gt;
   &lt;title&gt;ng-Macro: Tests&lt;&#47;title&gt;
