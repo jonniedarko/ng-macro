@@ -121,7 +121,7 @@ it("See if our Goals object exists", function(){
 
 navigate to out test url in mycase this was "localhost/ng-macro/test"
 
-Bam! now we are actually test our controller, very basic at moment, so lets throw in a few tests to see we can set our models and use our controllers functions...
+Bam! now we are actually testing our controller, very basic at moment, so lets throw in a few tests to see if we can set our models and use our controllers functions...
 
 ```js
 
@@ -161,9 +161,9 @@ Bam! now we are actually test our controller, very basic at moment, so lets thro
     });
 ```
 
-Nothing really difficult going on here, once you have grasped what we have done pior to this then it just basic javascript here. What we are doin is setting the same variable that would be set by the UI using `ngModel` and then checking our functions produce the correct results.
+Nothing really difficult going on here, once you have grasped what we have done pior to this then it's just basic javascript here. What we are doing is setting the same variable that would be set by the UI using `ngModel` and then checking our functions produce the correct results.
 
-Not so difficult....But this is only the tip of the Iceberg. In future tutorials on testing we will explore some of the more Advanced options available such as mocking Services, End to End testing our app using [Node.js](node.js) and automating our tests using [Grunt.js](http://gruntjs.com/). The next tutorial we will be looking at creating a directive version of our ng-macro but we will try to approach it using Test Driven Development.
+Not so difficult....But this is only the tip of the Iceberg. In future tutorials on testing we will explore some of the more Advanced options available such as mocking Services, End to End testing our app using [Node.js](node.js) and automating our tests using [Grunt.js](http://gruntjs.com/). The next tutorial we will be looking at creating a directive version of our ng-macro.
 
 
 
